@@ -36,7 +36,7 @@ $(document).ready(function() {
 
 			function initialize_dom() {
 				console.log("Init Dom");
-				$("#art_pic_url").html("<img src='" + art[artwork_index]["art_pic_url"] + "'>");
+				$("#art_pic_url").attr('src', art[artwork_index]["art_pic_url"]);
 				$("#art_pic_url").fadeIn("slow");
 				$("#artist").html(art[artwork_index]["artist"]);
 				$("#artist").hide();
