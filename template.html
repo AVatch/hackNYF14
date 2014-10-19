@@ -2,28 +2,291 @@
    <head>
       <title>{{ title }}</title>
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+      <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
       <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
       <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
       <script src="template.js"></script>
+
+
+      <style>
+
+
+
+.animation-target {
+  -webkit-animation: animation 1000ms linear both;
+  animation: animation 1000ms linear both;
+}
+
+/* Generated with Bounce.js. Edit at http://goo.gl/Vn2Euz */
+
+@-webkit-keyframes animation { 
+  0% { -webkit-transform: matrix3d(0.5, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.5, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  3.333333% { -webkit-transform: matrix3d(0.64545, 0, 0, 0, 0, 0.68602, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.64545, 0, 0, 0, 0, 0.68602, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  6.666667% { -webkit-transform: matrix3d(0.79842, 0, 0, 0, 0, 0.90691, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.79842, 0, 0, 0, 0, 0.90691, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  10% { -webkit-transform: matrix3d(0.92774, 0, 0, 0, 0, 1.07226, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.92774, 0, 0, 0, 0, 1.07226, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  13.333333% { -webkit-transform: matrix3d(1.01897, 0, 0, 0, 0, 1.14684, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.01897, 0, 0, 0, 0, 1.14684, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  16.666667% { -webkit-transform: matrix3d(1.07044, 0, 0, 0, 0, 1.14088, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.07044, 0, 0, 0, 0, 1.14088, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  20% { -webkit-transform: matrix3d(1.08847, 0, 0, 0, 0, 1.08847, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.08847, 0, 0, 0, 0, 1.08847, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  23.333333% { -webkit-transform: matrix3d(1.08303, 0, 0, 0, 0, 1.02623, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.08303, 0, 0, 0, 0, 1.02623, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  26.666667% { -webkit-transform: matrix3d(1.06445, 0, 0, 0, 0, 0.97964, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.06445, 0, 0, 0, 0, 0.97964, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  30% { -webkit-transform: matrix3d(1.04137, 0, 0, 0, 0, 0.95863, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.04137, 0, 0, 0, 0, 0.95863, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  33.333333% { -webkit-transform: matrix3d(1.01985, 0, 0, 0, 0, 0.9603, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.01985, 0, 0, 0, 0, 0.9603, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  36.666667% { -webkit-transform: matrix3d(1.00322, 0, 0, 0, 0, 0.97507, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00322, 0, 0, 0, 0, 0.97507, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  40% { -webkit-transform: matrix3d(0.99261, 0, 0, 0, 0, 0.99261, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99261, 0, 0, 0, 0, 0.99261, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  43.333333% { -webkit-transform: matrix3d(0.98758, 0, 0, 0, 0, 1.00574, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.98758, 0, 0, 0, 0, 1.00574, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  46.666667% { -webkit-transform: matrix3d(0.98684, 0, 0, 0, 0, 1.01166, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.98684, 0, 0, 0, 0, 1.01166, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  50% { -webkit-transform: matrix3d(0.98881, 0, 0, 0, 0, 1.01119, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.98881, 0, 0, 0, 0, 1.01119, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  53.333333% { -webkit-transform: matrix3d(0.99207, 0, 0, 0, 0, 1.00702, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99207, 0, 0, 0, 0, 1.00702, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  56.666667% { -webkit-transform: matrix3d(0.99549, 0, 0, 0, 0, 1.00208, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99549, 0, 0, 0, 0, 1.00208, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  60% { -webkit-transform: matrix3d(0.99838, 0, 0, 0, 0, 0.99838, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99838, 0, 0, 0, 0, 0.99838, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  63.333333% { -webkit-transform: matrix3d(1.00042, 0, 0, 0, 0, 0.99672, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00042, 0, 0, 0, 0, 0.99672, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  66.666667% { -webkit-transform: matrix3d(1.00158, 0, 0, 0, 0, 0.99685, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00158, 0, 0, 0, 0, 0.99685, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  70% { -webkit-transform: matrix3d(1.00198, 0, 0, 0, 0, 0.99802, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00198, 0, 0, 0, 0, 0.99802, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  73.333333% { -webkit-transform: matrix3d(1.00186, 0, 0, 0, 0, 0.99941, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00186, 0, 0, 0, 0, 0.99941, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  76.666667% { -webkit-transform: matrix3d(1.00144, 0, 0, 0, 0, 1.00046, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00144, 0, 0, 0, 0, 1.00046, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  80% { -webkit-transform: matrix3d(1.00093, 0, 0, 0, 0, 1.00093, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00093, 0, 0, 0, 0, 1.00093, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  83.333333% { -webkit-transform: matrix3d(1.00044, 0, 0, 0, 0, 1.00089, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00044, 0, 0, 0, 0, 1.00089, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  86.666667% { -webkit-transform: matrix3d(1.00007, 0, 0, 0, 0, 1.00056, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00007, 0, 0, 0, 0, 1.00056, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  90% { -webkit-transform: matrix3d(0.99983, 0, 0, 0, 0, 1.00017, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99983, 0, 0, 0, 0, 1.00017, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  93.333333% { -webkit-transform: matrix3d(0.99972, 0, 0, 0, 0, 0.99987, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99972, 0, 0, 0, 0, 0.99987, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  96.666667% { -webkit-transform: matrix3d(0.99971, 0, 0, 0, 0, 0.99974, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99971, 0, 0, 0, 0, 0.99974, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  100% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); } 
+}
+
+@keyframes animation { 
+  0% { -webkit-transform: matrix3d(0.5, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.5, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  3.333333% { -webkit-transform: matrix3d(0.64545, 0, 0, 0, 0, 0.68602, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.64545, 0, 0, 0, 0, 0.68602, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  6.666667% { -webkit-transform: matrix3d(0.79842, 0, 0, 0, 0, 0.90691, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.79842, 0, 0, 0, 0, 0.90691, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  10% { -webkit-transform: matrix3d(0.92774, 0, 0, 0, 0, 1.07226, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.92774, 0, 0, 0, 0, 1.07226, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  13.333333% { -webkit-transform: matrix3d(1.01897, 0, 0, 0, 0, 1.14684, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.01897, 0, 0, 0, 0, 1.14684, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  16.666667% { -webkit-transform: matrix3d(1.07044, 0, 0, 0, 0, 1.14088, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.07044, 0, 0, 0, 0, 1.14088, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  20% { -webkit-transform: matrix3d(1.08847, 0, 0, 0, 0, 1.08847, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.08847, 0, 0, 0, 0, 1.08847, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  23.333333% { -webkit-transform: matrix3d(1.08303, 0, 0, 0, 0, 1.02623, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.08303, 0, 0, 0, 0, 1.02623, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  26.666667% { -webkit-transform: matrix3d(1.06445, 0, 0, 0, 0, 0.97964, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.06445, 0, 0, 0, 0, 0.97964, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  30% { -webkit-transform: matrix3d(1.04137, 0, 0, 0, 0, 0.95863, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.04137, 0, 0, 0, 0, 0.95863, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  33.333333% { -webkit-transform: matrix3d(1.01985, 0, 0, 0, 0, 0.9603, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.01985, 0, 0, 0, 0, 0.9603, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  36.666667% { -webkit-transform: matrix3d(1.00322, 0, 0, 0, 0, 0.97507, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00322, 0, 0, 0, 0, 0.97507, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  40% { -webkit-transform: matrix3d(0.99261, 0, 0, 0, 0, 0.99261, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99261, 0, 0, 0, 0, 0.99261, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  43.333333% { -webkit-transform: matrix3d(0.98758, 0, 0, 0, 0, 1.00574, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.98758, 0, 0, 0, 0, 1.00574, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  46.666667% { -webkit-transform: matrix3d(0.98684, 0, 0, 0, 0, 1.01166, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.98684, 0, 0, 0, 0, 1.01166, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  50% { -webkit-transform: matrix3d(0.98881, 0, 0, 0, 0, 1.01119, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.98881, 0, 0, 0, 0, 1.01119, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  53.333333% { -webkit-transform: matrix3d(0.99207, 0, 0, 0, 0, 1.00702, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99207, 0, 0, 0, 0, 1.00702, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  56.666667% { -webkit-transform: matrix3d(0.99549, 0, 0, 0, 0, 1.00208, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99549, 0, 0, 0, 0, 1.00208, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  60% { -webkit-transform: matrix3d(0.99838, 0, 0, 0, 0, 0.99838, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99838, 0, 0, 0, 0, 0.99838, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  63.333333% { -webkit-transform: matrix3d(1.00042, 0, 0, 0, 0, 0.99672, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00042, 0, 0, 0, 0, 0.99672, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  66.666667% { -webkit-transform: matrix3d(1.00158, 0, 0, 0, 0, 0.99685, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00158, 0, 0, 0, 0, 0.99685, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  70% { -webkit-transform: matrix3d(1.00198, 0, 0, 0, 0, 0.99802, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00198, 0, 0, 0, 0, 0.99802, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  73.333333% { -webkit-transform: matrix3d(1.00186, 0, 0, 0, 0, 0.99941, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00186, 0, 0, 0, 0, 0.99941, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  76.666667% { -webkit-transform: matrix3d(1.00144, 0, 0, 0, 0, 1.00046, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00144, 0, 0, 0, 0, 1.00046, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  80% { -webkit-transform: matrix3d(1.00093, 0, 0, 0, 0, 1.00093, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00093, 0, 0, 0, 0, 1.00093, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  83.333333% { -webkit-transform: matrix3d(1.00044, 0, 0, 0, 0, 1.00089, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00044, 0, 0, 0, 0, 1.00089, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  86.666667% { -webkit-transform: matrix3d(1.00007, 0, 0, 0, 0, 1.00056, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1.00007, 0, 0, 0, 0, 1.00056, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  90% { -webkit-transform: matrix3d(0.99983, 0, 0, 0, 0, 1.00017, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99983, 0, 0, 0, 0, 1.00017, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  93.333333% { -webkit-transform: matrix3d(0.99972, 0, 0, 0, 0, 0.99987, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99972, 0, 0, 0, 0, 0.99987, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  96.666667% { -webkit-transform: matrix3d(0.99971, 0, 0, 0, 0, 0.99974, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0.99971, 0, 0, 0, 0, 0.99974, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+  100% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); } 
+}
+
+
+
+      </style>
+
+
    </head>
-   <body>
-	    <form id="prompt">
+
+   <body style="overflow-y:hidden;">
+
+        <nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      
+      <a class="navbar-brand" href="#">
+      <i class="fa fa-circle-o fa-lg"></i>
+      MindFuck</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">hackNYF14</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+        <div class="container" style="overflow-y:hidden;">
+
+      			<button id="up" type="button">Go up</button>
+						<button id="down" type="button">Go down</button>
+
+            <div class="row">
+                <div class="col-md-7"
+                style="padding-right:0px;">
+             	    <div class="image">    
+	                    <img id="art_pic_url" src="http://upload.wikimedia.org/wikipedia/commons/5/58/Human_brain.png" 
+	                    class="center"
+	                    style="
+	                        height:80%;
+	                        width:80%;
+
+	                        padding: 10px;
+	                        box-shadow: 1px 1px 5px #888888;
+
+	                        "/>
+	                </div>
+            	</div>
+
+                <div class="col-md-5"
+                style="
+                height: 700px;
+                overflow-y: auto;
+                ">
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="painting_name">
+                                <h1 id="art_title" style="color: #777777;">Painting Name</h1>
+                            </div>  
+						</div>
+                    </div>
+
+                    <div class="row" style="padding-top:20px;">
+                        <div class="col-md-7"
+                            style="padding-right    :0px;">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <strong id="artist" style="font-size:20px;">Artist Name</strong>
+                                </div>
+                                <div id="artist_bio" class="col-md-12">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <img id="artist_pic_url" src="http://placehold.it/350x150"
+                                style="width:100%; height:175px;"/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                    	<div class="col-md-12">
+		                   	<form id="prompt">
+			    				<input type="text" name="User ID" id="user_id">
+			    				<input type="submit" value="Get Started">
+			    			</form>
+			    		</div>
+		    		</div>
+
+                    <div id="article">
+	                    <div class="row" style="padding-top:20px;">
+	                        <div class="col-md-12">
+	                            <div class="animation-target panel panel-default" 
+	                                style="border-radius:0px;">
+	                                
+	                                <div class="panel-body">
+	                                    <h3>News Article 01</h3>
+	                                    <hr>
+	                                    <small>Article Lead</small>
+	                                </div>
+	                            </div>
+	                        </div>
+
+	                        <div class="col-md-12" style="">
+	                            <div class="animation-target panel panel-default" 
+	                                style="border-radius:0px;">
+	                                
+	                                <div class="panel-body">
+	                                    <h3>News Article 02</h3>
+	                                    <hr>
+	                                    <small>Article Lead</small>
+	                                </div>
+	                            </div>
+	                        </div>
+
+	                        <div class="col-md-12" style="">
+	                            <div class="animation-target panel panel-default" 
+	                                style="border-radius:0px;">
+	                                
+	                                <div class="panel-body">
+	                                    <h3>News Article 03</h3>
+	                                    <hr>
+	                                    <small>Article Lead</small>
+	                                </div>
+	                            </div>
+	                        </div>
+
+	                        <div class="col-md-12" style="">
+	                            <div class="animation-target panel panel-default" 
+	                                style="border-radius:0px;">
+	                                
+	                                <div class="panel-body">
+	                                    <h3>News Article 04</h3>
+	                                    <hr>
+	                                    <small>Article Lead</small>
+	                                </div>
+	                            </div>
+	                        </div>
+
+	                        <div class="col-md-12" style="">
+	                            <div class="animation-target panel panel-default" 
+	                                style="border-radius:0px;">
+	                                
+	                                <div class="panel-body">
+	                                    <h3>News Article 05</h3>
+	                                    <hr>
+	                                    <small>Article Lead</small>
+	                                </div>
+	                            </div>
+	                        </div>
+
+	                        <div class="col-md-12" style="">
+	                            <div class="animation-target panel panel-default" 
+	                                style="border-radius:0px;">
+	                                
+	                                <div class="panel-body">
+	                                    <h3>News Article 06</h3>
+	                                    <hr>
+	                                    <small>Article Lead</small>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+	    <!-- <form id="prompt">
 	    	<input type="text" name="User ID" id="user_id">
 	    	<input type="submit" value="Get Started">
 	    </form>
 		  <div id="fade">  
 		    <div id="art_pic_url">
+		    	<img id="image" src="brain.png">
 		    </div>
-		    <div id="art_title">
+
 		    </div>
-		    <div id="artist">
-		    </div>
-		    <div id="artist_bio">
-		    </div>
-		    <div id="artist_pic_url">	 
-		    </div>
-		    <div id="article">
-		    </div>
-		  </div>
+
+
+
+		    
+		  </div> -->
+
+
+
    </body>
 </html>
