@@ -62,7 +62,7 @@ $(document).ready(function() {
 				$("#artist_pic_url").attr('src', art[artwork_index]["artist_pic_url"]);
 				$("#artist_pic_url").hide();
 
-				for(var i = 0; i < art[artwork_index]["articles"].length(); i++) {
+				for (var i = 0; i < 6; i++) {
 					$("#" + i.toString() + " h3").html(art[artwork_index]["articles"][i]["name"]);
 					$("#" + i.toString() + " small").html(art[artwork_index]["articles"][i]["description"]);
 				}
