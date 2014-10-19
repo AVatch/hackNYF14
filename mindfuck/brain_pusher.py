@@ -11,8 +11,8 @@ def runner(user, data_file):
     sweep = 1
     while(True):
         print "Sweep:\t", sweep
-        if sweep == 60:
-            break
+        # if sweep == 60:
+        # break
         sweep += 1
         sleep(1.0)  # Time in seconds.
         data = np.array(list(csv.reader(
