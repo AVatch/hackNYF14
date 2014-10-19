@@ -1,7 +1,9 @@
 $(document).ready(function() {
 
-			var focus_level = 0;
+			var focus_level = 1;
 			var focus_change = 0;
+			var previous_reading = 0;
+			var current_reading = 0;
 			var art = [];
 			var artwork_index = 0;
 			var user_id = 0;
@@ -77,8 +79,9 @@ $(document).ready(function() {
 					url: "http://104.131.69.12:8888/pull/brain/" + user_id.toString(),
 					success: function(data) {
 						console.log("refresh focus - success loop");
-						focus_change = (data.focus_level - 13) - focus_level;
-						focus_level = data.focus_level - 13;
+						previous_reading = current_reading
+						current_reading = data.focus_level
+						focus_change = current_reading - previous_reading
 						update_dom();
 					},
 					complete: function() {
@@ -101,6 +104,7 @@ $(document).ready(function() {
 				console.log("in the update dom method");
 				console.log("The focus_level is: " + focus_level.toString());
 				if (focus_change >= 1) {
+					focus_level++;
 					if (focus_level == 2) {
 						console.log("in update dom - case 2");
 						$('#artist').fadeIn('slow');
@@ -117,7 +121,7 @@ $(document).ready(function() {
 					}
 				} if (focus_change < 0){
 					++artwork_index;
-					focus_level = 0;
+					focus_level = 1;
 					fade_out();
 					initialize_dom();
 				}
