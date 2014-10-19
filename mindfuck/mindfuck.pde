@@ -8,7 +8,7 @@ int time;
 
 void setup(){
   // Create output file
-  output = createWriter("brandonIdioms.csv");
+  output = createWriter("latee3.csv");
   
   // List all availible serial ports
   println("Listening on Port:");
