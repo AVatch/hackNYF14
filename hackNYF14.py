@@ -54,18 +54,18 @@ class BrainHandler(tornado.web.RequestHandler):
         pass
 
     def post(self, user):
-        response = json.loads(self.request.body)
-        response["user"] = user
-
-        print response
-
-        # db['brain_collection'].insert(request)
+        request = json.loads(self.request.body)
+        request["user"] = user
+        print request
+        print "\n"
+        db[user + '_brain_collection'].insert(request)
 
 
 application = tornado.web.Application([
     (r"/", MainHandler),
     (r"/push/brain/([^/]*)", BrainHandler),
 ], db=db, debug=True)
+
 
 if __name__ == '__main__':
     print datetime.datetime.now(), "\tTornado Running:"
