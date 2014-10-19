@@ -38,8 +38,8 @@ class MainHandler(tornado.web.RequestHandler):
 
 
 application = tornado.web.Application([
-    (r"/", MainHandler),
-], db=db, debug=True)
+    (r"/", MainHandler), tornado.web.StaticFileHandler
+], db=db, debug=True, static_path=os.path.join(PATH, 'static'))
 
 if __name__ == '__main__':
     print datetime.datetime.now(), "\tTornado Running:"

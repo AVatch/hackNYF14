@@ -3,7 +3,6 @@
       <title>{{ title }}</title>
       <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
       <link rel="stylesheet" type="text/css" href="template.css">
-      <script src="template.js"></script>
    </head>
    <body>
 	    <form id="prompt">
@@ -11,4 +10,19 @@
 	    	<input type="submit" value="Get Started">
 	    </form>
    </body>
+  <script type="text/javascript">
+		$(document).ready(function() {
+
+			var focus_level = 0;
+			var artwork = [];
+			var artwork_index = 0;
+			var user_id = 0;
+
+			$(#prompt).submit(function() {
+				user_id = $(#user_id).val();
+				console.log(user_id);
+			})
+
+		})
+	</script>
 </html>
