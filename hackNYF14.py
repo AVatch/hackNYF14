@@ -105,7 +105,6 @@ class BrainHandler(tornado.web.RequestHandler):
         print "\n"
         db[user + '_brain_collection'].insert(request)
 
-
 application = tornado.web.Application([
     (r"/", MainHandler),
     (r"/grabart", ArtHandler),
