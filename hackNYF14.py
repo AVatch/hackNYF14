@@ -44,9 +44,10 @@ class MainHandler(tornado.web.RequestHandler):
 
 class ArtHandler(tornado.web.RequestHandler):
     def get(self):
-        art_objects = db.md5_fuzzy_hashes.find();
-        print art_objects
-        self.write(json.dumps(art_objects))
+        art_list = []
+        for obj in db['md5_fuzzy_hashes'].find():
+            art_list.append(obj)
+        self.write(json.dumps(art_list))
 
 
 class BrainHandler(tornado.web.RequestHandler):
