@@ -1,4 +1,5 @@
 from hackNYF14 import db
+import json
 
 art = []
 with open('art.json') as data_file:
