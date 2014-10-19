@@ -92,6 +92,7 @@ $(document).ready(function() {
 			};
 
 			function update_dom() {
+				
 				console.log("in the update dom method");
 				console.log("The focus_level is: " + focus_level.toString());
 				if (focus_change >= 1) {
