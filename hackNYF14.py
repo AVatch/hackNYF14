@@ -85,7 +85,12 @@ class BrainHandler(tornado.web.RequestHandler):
         # print "Mean:\t", attention_mean
 
         for i, j in enumerate(attention):
+
+            if attention_std == 0:
+                continue
+
             print i, "\t", j, "\t", math.floor(float(j / attention_std))
+
             focus_level_arr.append(math.floor(float(j / attention_std)))
 
         response = {}
