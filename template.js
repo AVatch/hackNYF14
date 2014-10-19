@@ -20,6 +20,7 @@ $(document).ready(function() {
 				user_id = $("#user_id").val();
 				$("#prompt").hide();
 				grab_art();
+				refresh_focus();
 			});
 
 			$("#up").on('click', function(e) {
@@ -69,7 +70,6 @@ $(document).ready(function() {
 					$("#" + i.toString() + " h3").html(art[artwork_index]["articles"][i]["name"]);
 					$("#" + i.toString() + " small").html(art[artwork_index]["articles"][i]["description"]);
 				}
-				refresh_focus();
 				console.log("towards the end of the initialize loop");
 			};
 
