@@ -85,7 +85,7 @@ $(document).ready(function() {
 						update_dom();
 					},
 					complete: function() {
-						setTimeout(refresh_focus, 3000);
+						setTimeout(refresh_focus, 2000);
 					},
 				});
 			};
@@ -98,7 +98,7 @@ $(document).ready(function() {
 				$("#article").hide('slow');
 			};
 
-			function update_dom() {
+			function update_dom() {	
 				console.log("in the update dom method");
 				console.log("The focus_level is: " + focus_level.toString());
 				if (focus_change >= 1) {
