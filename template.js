@@ -7,6 +7,7 @@ $(document).ready(function() {
 			var art = [];
 			var artwork_index = 0;
 			var user_id = 0;
+			var firt_time = true; 
 
 
 			$("#artist").hide();
@@ -20,7 +21,6 @@ $(document).ready(function() {
 				user_id = $("#user_id").val();
 				$("#prompt").hide();
 				grab_art();
-				refresh_focus();
 			});
 
 			$("#up").on('click', function(e) {
@@ -71,6 +71,10 @@ $(document).ready(function() {
 					$("#" + i.toString() + " small").html(art[artwork_index]["articles"][i]["description"]);
 				}
 				console.log("towards the end of the initialize loop");
+				if (firt_time) {
+					refresh_focus();
+					firt_time = false;
+				}
 			};
 
 			function refresh_focus() {
