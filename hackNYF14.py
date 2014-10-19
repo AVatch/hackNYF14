@@ -62,6 +62,7 @@ class BrainHandler(tornado.web.RequestHandler):
         for obj in db[user+'_brain_collection'].find():
             obj_list.append(obj["brain_activity"])
 
+        print obj_list
         attention = []
         for i in obj_list:
             attention.append(int(i[1][1]))
@@ -69,19 +70,21 @@ class BrainHandler(tornado.web.RequestHandler):
         attention_mean = np.mean(attention)
         attention_std = np.std(attention)
 
-        focus_level = []
+        focus_level_arr = []
 
-        print "Mean:\t", attention_mean
+        # print "Mean:\t", attention_mean
 
         for i, j in enumerate(attention):
-            print i, "\t", j, "\t", math.floor(float(j / attention_std))
-            focus_level.append(math.floor(float(j / attention_std)))
+            # print i, "\t", j, "\t", math.floor(float(j / attention_std))
+            focus_level_arr.append(math.floor(float(j / attention_std)))
 
         response = {}
         response['user'] = user
         response['focus_level_std'] = attention_std
+        response['focus_last_val'] = attention[-1]
         response['focus_level_mean'] = attention_mean
-        response['focus_level'] = focus_level
+        response['focus_level'] = focus_level_arr
+
 
         self.write(json.dumps(response, default=json_util.default))
 
