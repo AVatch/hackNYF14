@@ -7,11 +7,16 @@ import numpy as np
 from time import sleep
 
 
-def runner(user):
+def runner(user, data_file):
+    sweep = 1
     while(True):
+        print "Sweep:\t", sweep
+        # if sweep == 60:
+        # break
+        sweep += 1
         sleep(1.0)  # Time in seconds.
         data = np.array(list(csv.reader(
-                        open("brain_activity.csv"), delimiter=',')))
+                        open(data_file), delimiter=',')))
         data = list(data)
 
         uniq_data = set(map(tuple, data)) # Get uniques
@@ -29,4 +34,5 @@ def runner(user):
 
 if __name__ == '__main__':
     user = sys.argv[1]
-    runner(user)
+    data_file = sys.argv[2]
+    runner(user, data_file)

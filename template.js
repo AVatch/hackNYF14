@@ -1,4 +1,5 @@
 $(document).ready(function() {
+			grab_art();
 
 			var focus_level = 0;
 			var focus_change = 0;
@@ -19,7 +20,8 @@ $(document).ready(function() {
 					dataType: "json",
 					url: "http://104.131.69.12:8888/grabart",
 					success: function(data) {
-						art = data;
+						art = data["art"];
+						console.log(art);
 						artwork_index = 0;
 						focus_level = 1;
 						initialize_dom();

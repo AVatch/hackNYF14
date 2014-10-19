@@ -42,6 +42,16 @@ class MainHandler(tornado.web.RequestHandler):
 
         self.write(json.dumps(response))
 
+class ArtHandler(tornado.web.RequestHandler):
+    def get(self):
+        art_list = []
+        counter = 0
+        art_list = db['md5_fuzzy_hashes'].find()
+        print len(art_list)
+        response = {}
+        response["art"] = art_list
+        self.write(json.dumps(response, default=json_util.default))
+
 
 class BrainHandler(tornado.web.RequestHandler):
     def options(self):
@@ -62,6 +72,7 @@ class BrainHandler(tornado.web.RequestHandler):
         for obj in db[user+'_brain_collection'].find():
             obj_list.append(obj["brain_activity"])
 
+        print obj_list
         attention = []
         for i in obj_list:
             attention.append(int(i[1][1]))
@@ -69,19 +80,21 @@ class BrainHandler(tornado.web.RequestHandler):
         attention_mean = np.mean(attention)
         attention_std = np.std(attention)
 
-        focus_level = []
+        focus_level_arr = []
 
-        print "Mean:\t", attention_mean
+        # print "Mean:\t", attention_mean
 
         for i, j in enumerate(attention):
-            print i, "\t", j, "\t", math.floor(float(j / attention_std))
-            focus_level.append(math.floor(float(j / attention_std)))
+            # print i, "\t", j, "\t", math.floor(float(j / attention_std))
+            focus_level_arr.append(math.floor(float(j / attention_std)))
 
         response = {}
         response['user'] = user
         response['focus_level_std'] = attention_std
+        response['focus_last_val'] = attention[-1]
         response['focus_level_mean'] = attention_mean
-        response['focus_level'] = focus_level
+        response['focus_level'] = focus_level_arr
+
 
         self.write(json.dumps(response, default=json_util.default))
 
@@ -95,6 +108,7 @@ class BrainHandler(tornado.web.RequestHandler):
 
 application = tornado.web.Application([
     (r"/", MainHandler),
+    (r"/grabart", ArtHandler),
     (r"/push/brain/([^/]*)", BrainHandler),
     (r"/pull/brain/([^/]*)", BrainHandler),
     (r"/(.*)", tornado.web.StaticFileHandler, dict(path=os.path.dirname(__file__)))
@@ -102,5 +116,10 @@ application = tornado.web.Application([
 
 if __name__ == '__main__':
     print datetime.datetime.now(), "\tTornado Running:"
+    art = []
+    with open('art.json') as data_file:
+        art = json.load(data_file)
+    for each in art:
+        db['md5_fuzzy_hashes'].insert(each)
     application.listen(8888)
     tornado.ioloop.IOLoop.instance().start()
