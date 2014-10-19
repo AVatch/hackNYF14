@@ -47,7 +47,7 @@ $(document).ready(function() {
 				$("#artist_bio").html(art[artwork_index]["artist_bio"]);
 				$("#artist_bio").hide();
 
-				$("#artist_pic_url").html("<img src='" + art[artwork_index]["artist_pic_url"] + "'>");
+				$("#artist_pic_url").attr('src', art[artwork_index]["artist_pic_url"]);
 				$("#artist_pic_url").hide();
 			};
 
