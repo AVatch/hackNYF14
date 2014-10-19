@@ -8,7 +8,7 @@ int time;
 
 void setup(){
   // Create output file
-  output = createWriter("brain_activity.csv");
+  output = createWriter("chill07.csv");
   
   // List all availible serial ports
   println("Listening on Port:");
