@@ -65,7 +65,6 @@ $(document).ready(function() {
 				$.ajax({
 					type: "GET",
 					dataType: "json",
-					data: { user_id : user_id },
 					url: "http://104.131.69.12:8888/pull/mind/" + user_id.toString(),
 					success: function(data) {
 						console.log("refresh focus - success loop");
