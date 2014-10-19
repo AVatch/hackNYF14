@@ -101,11 +101,11 @@ class BrainHandler(tornado.web.RequestHandler):
     def post(self, user):
         request = json.loads(self.request.body)
         request["user"] = user
-        print request
-        print "\n"
+        # print request
+        # print "\n"
         entry_id = db[user + '_brain_collection'].insert(request)
 
-        print "ENTRY_ID:\t", entry_id
+        # print "ENTRY_ID:\t", entry_id
 
 application = tornado.web.Application([
     (r"/", MainHandler),
