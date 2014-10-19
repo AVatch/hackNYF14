@@ -79,8 +79,6 @@ $(document).ready(function() {
 					},
 				});
 				console.log("refresh focus - outside loop");
-				focus_change = data.focus_level - focus_level;
-				focus_level = data.focus_level;
 				update_dom();
 			};
 
