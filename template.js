@@ -72,8 +72,8 @@ $(document).ready(function() {
 					url: "http://104.131.69.12:8888/pull/brain/" + user_id.toString(),
 					success: function(data) {
 						console.log("refresh focus - success loop");
-						focus_change = data.focus_level - focus_level;
-						focus_level = data.focus_level;
+						focus_change = data.focus_last_val - focus_level;
+						focus_level = data.focus_last_val;
 						update_dom();
 					},
 					complete: function() {
@@ -93,6 +93,7 @@ $(document).ready(function() {
 
 			function update_dom() {
 				console.log("in the update dom method");
+				console.log("The focus_level is: " + focus_level.toString());
 				if (focus_change >= 1) {
 					if (focus_level == 2) {
 						console.log("in update dom - case 2");
