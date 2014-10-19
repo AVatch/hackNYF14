@@ -85,7 +85,7 @@ $(document).ready(function() {
 						update_dom();
 					},
 					complete: function() {
-						setTimeout(refresh_focus, 3000);
+						setTimeout(refresh_focus, 4000);
 					},
 				});
 			};
@@ -120,7 +120,7 @@ $(document).ready(function() {
 				} if (focus_change < 0){
 					artwork_index = (artwork_index + 1) % 7
 					previous_reading = current_reading;
-					focus_level = 1;
+					focus_level = 0;
 					fade_out();
 					initialize_dom();
 				}
