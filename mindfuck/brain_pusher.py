@@ -11,8 +11,8 @@ def runner(user, data_file):
     sweep = 1
     while(True):
         print "Sweep:\t", sweep
-        if sweep == 60:
-            break
+        # if sweep == 60:
+        #     break
         sweep += 1
         sleep(1.0)  # Time in seconds.
         data = np.array(list(csv.reader(
@@ -28,8 +28,8 @@ def runner(user, data_file):
             data_to_post.append(list(i))
 
         post = {"brain_activity": data_to_post}
-        # req = urllib2.Request('http://104.131.69.12:8888/push/brain/' + user)
-        req = urllib2.Request('http://localhost:8888/push/brain/' + user)
+        req = urllib2.Request('http://104.131.69.12:8888/push/brain/' + user)
+        # req = urllib2.Request('http://localhost:8888/push/brain/' + user)
         req.add_header('Content-Type', 'application/json')
         response = urllib2.urlopen(req, json.dumps(post))
 
