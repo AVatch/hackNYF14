@@ -24,7 +24,7 @@ class MainHandler(tornado.web.RequestHandler):
     def get(self):
         response = {}
         response["message"] = "Yo"
-        self.render("template.html", title="MIND FUCK", response=json.dumps(response))
+        self.render("template.html", title="MIND FUCK", response=response)
 
     def post(self):
         response = {}
@@ -64,8 +64,8 @@ class BrainHandler(tornado.web.RequestHandler):
 application = tornado.web.Application([
     (r"/", MainHandler),
     (r"/push/brain/([^/]*)", BrainHandler),
-], db=db, debug=True)
-
+    (r"/*.js", tornado.web.StaticFileHandler)
+    ], db=db, debug=True)
 
 if __name__ == '__main__':
     print datetime.datetime.now(), "\tTornado Running:"

@@ -1,9 +1,29 @@
 <html>
    <head>
       <title>{{ title }}</title>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script src="template.js"></script>
    </head>
    <body>
-    {{ response["message"] }}
-     Yo yoyoyo!!!! 
+	    <form id="prompt">
+	    	<input type="text" name="User ID" id="user_id">
+	    	<input type="submit" value="Get Started">
+	    </form>
    </body>
+  <script type="text/javascript">
+		$(document).ready(function() {
+
+			var focus_level = 0;
+			var artwork = [];
+			var artwork_index = 0;
+			var id = 0;
+
+			$("#prompt").submit(function(e) {
+				e.preventDefault();
+				id = $("#user_id").val();
+				console.log(id);
+			});
+
+		});
+	</script>
 </html>
