@@ -103,7 +103,7 @@ class BrainHandler(tornado.web.RequestHandler):
 
 application = tornado.web.Application([
     (r"/", MainHandler),
-    (r"/grabart", MainHandler),
+    (r"/grabart", ArtHandler),
     (r"/push/brain/([^/]*)", BrainHandler),
     (r"/pull/brain/([^/]*)", BrainHandler),
     (r"/(.*)", tornado.web.StaticFileHandler, dict(path=os.path.dirname(__file__)))
