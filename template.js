@@ -85,7 +85,7 @@ $(document).ready(function() {
 						update_dom();
 					},
 					complete: function() {
-						setTimeout(refresh_focus, 2000);
+						setTimeout(refresh_focus, 3000);
 					},
 				});
 			};
@@ -101,7 +101,7 @@ $(document).ready(function() {
 			function update_dom() {	
 				console.log("in the update dom method");
 				console.log("The focus_level is: " + focus_level.toString());
-				if (focus_change >= 1) {
+				if (focus_change >= 0) {
 					focus_level++;
 					if (focus_level == 2) {
 						console.log("in update dom - case 2");
@@ -118,7 +118,7 @@ $(document).ready(function() {
 						$('#article').fadeIn('slow');
 					}
 				} if (focus_change < 0){
-					++artwork_index;
+					artwork_index = (artwork_index + 1) % 7
 					previous_reading = current_reading;
 					focus_level = 1;
 					fade_out();
