@@ -103,7 +103,9 @@ class BrainHandler(tornado.web.RequestHandler):
         request["user"] = user
         print request
         print "\n"
-        db[user + '_brain_collection'].insert(request)
+        entry_id = db[user + '_brain_collection'].insert(request)
+
+        print "ENTRY_ID:\t", entry_id
 
 application = tornado.web.Application([
     (r"/", MainHandler),
