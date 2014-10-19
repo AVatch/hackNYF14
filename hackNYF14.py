@@ -2,6 +2,7 @@ import tornado.ioloop
 import tornado.web
 import datetime
 import json
+import os
 
 import pymongo
 
@@ -37,10 +38,34 @@ class MainHandler(tornado.web.RequestHandler):
         self.write(json.dumps(response))
 
 
+class BrainHandler(tornado.web.RequestHandler):
+    def options(self):
+        self.set_status(200)
+
+    def set_default_headers(self):
+        self.set_header('Access-Control-Allow-Origin', '*')
+        self.set_header('Access-Control-Allow-Methods',
+                        'POST, GET, PUT, DELETE, OPTIONS')
+        self.set_header('Access-Control-Allow-Credentials', False)
+        self.set_header('Access-Control-Allow-Headers',
+                        'X-Requested-With, X-HTTP-Method-Override, \
+                        Content-Type, Accept')
+
+    def get(self, user):
+        pass
+
+    def post(self, user):
+        request = json.loads(self.request.body)
+        request["user"] = user
+        print request
+        print "\n"
+        db[user + '_brain_collection'].insert(request)
+
+
 application = tornado.web.Application([
     (r"/", MainHandler),
-    (r"/*.js", tornado.web.StaticFileHandler),
-
+    (r"/push/brain/([^/]*)", BrainHandler),
+    (r"/(.*)", tornado.web.StaticFileHandler, dict(path=os.path.dirname(__file__)))
     ], db=db, debug=True)
 
 if __name__ == '__main__':

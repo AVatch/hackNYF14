@@ -4,10 +4,11 @@ Serial serial;
 int lf = 10; // ASCII linefeed
 String inString;
 PrintWriter output;
+int time;
 
 void setup(){
   // Create output file
-  output = createWriter("brain_activity.txt");
+  output = createWriter("brain_activity.csv");
   
   // List all availible serial ports
   println("Listening on Port:");
@@ -19,10 +20,9 @@ void setup(){
 }
 
 void draw(){
-//  point(mouseX, mouseY);
-//  output.println(mouseX);
   
-  output.println(inString); 
+    output.println(inString);
+   
 }
 
 void serialEvent(Serial p){
