@@ -102,5 +102,9 @@ application = tornado.web.Application([
 
 if __name__ == '__main__':
     print datetime.datetime.now(), "\tTornado Running:"
+    art = []
+    with open('art.json') as data_file:
+        art = json.load(data_file)
+    print art
     application.listen(8888)
     tornado.ioloop.IOLoop.instance().start()
