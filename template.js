@@ -50,6 +50,7 @@ $(document).ready(function() {
 				$("#artist_pic_url").html("<img src='" + art[artwork_index]["artist_pic_url"] + "'>");
 				$("#artist_pic_url").hide();
 				refresh_focus();
+				console.log("towards the end of the initialize loop");
 			};
 
 			function refresh_focus() {
