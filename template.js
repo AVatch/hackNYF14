@@ -58,7 +58,7 @@ $(document).ready(function() {
 					data: { user_id : user_id },
 					url: "http://104.131.69.12:8888/pull/mind/" + user_id.toString(),
 					success: function(data) {
-						console.log("refresh focus");
+						console.log("refresh focus - success loop");
 						focus_change = data.focus_level - focus_level;
 						focus_level = data.focus_level;
 						update_dom();
@@ -67,6 +67,7 @@ $(document).ready(function() {
 						setTimeout(refresh_focus, 5000);
 					},
 				});
+				console.log("refresh focus - outside loop");
 			};
 
 			function fade_out() {
