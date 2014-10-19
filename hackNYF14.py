@@ -45,7 +45,10 @@ class MainHandler(tornado.web.RequestHandler):
 class ArtHandler(tornado.web.RequestHandler):
     def get(self):
         art_list = []
+        counter = 0
         for obj in db['md5_fuzzy_hashes'].find():
+            print counter
+            counter += 1
             art_list.append(obj)
         print len(art_list)
         response = {}
