@@ -1,6 +1,5 @@
 import tornado.ioloop
 import tornado.web
-
 import datetime
 import json
 
@@ -26,6 +25,7 @@ class MainHandler(tornado.web.RequestHandler):
         response = {}
         response["message"] = "Yo"
         self.write(json.dumps(response))
+        self.render("template.html", title="MIND FUCK")
 
     def post(self):
         response = {}
