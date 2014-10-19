@@ -61,6 +61,11 @@ $(document).ready(function() {
 
 				$("#artist_pic_url").attr('src', art[artwork_index]["artist_pic_url"]);
 				$("#artist_pic_url").hide();
+
+				for(var i = 0; i < art[artwork_index]["articles"].length(); i++) {
+					$("#" + i.toString() + " h3").html(art[artwork_index]["articles"][i]["name"]);
+					$("#" + i.toString() + " small").html(art[artwork_index]["articles"][i]["description"]);
+				}
 				refresh_focus();
 				console.log("towards the end of the initialize loop");
 			};
@@ -92,7 +97,7 @@ $(document).ready(function() {
 			};
 
 			function update_dom() {
-				
+
 				console.log("in the update dom method");
 				console.log("The focus_level is: " + focus_level.toString());
 				if (focus_change >= 1) {
