@@ -1,14 +1,83 @@
 $(document).ready(function() {
 
 			var focus_level = 0;
-			var artwork = [];
+			var focus_change = 0;
+			var art = [];
 			var artwork_index = 0;
-			var id = 0;
+			var user_id = 0;
 
 			$("#prompt").submit(function(e) {
 				e.preventDefault();
-				id = $("#user_id").val();
-				console.log(id);
+				user_id = $("#user_id").val();
+				$("#prompt").hide();
+				grab_art();
 			});
 
+			function grab_art() {
+				$.ajax({
+					type: "GET",
+					dataType: "json",
+					url: "http://104.131.69.12:8888/grabart",
+					success: function(data) {
+						art = data;
+						artwork_index = 0;
+						focus_level = 1;
+						initialize_dom();
+					},
+				})
+			};
+
+			function initialize_dom() {
+				$("#art_pic_url").html("<img src='" + art[artwork_index]["art_pic_url"] + "'>");
+				$("#art_pic_url").fadeIn("slow");
+				$("#artist").html(art[artwork_index]["artist"]);
+				$("#artist").hide();
+
+				$("#art_title").html(art[artwork_index]["art_title"]);
+				$("#art_title").hide();
+
+				$("#artist_bio").html(art[artwork_index]["artist_bio"]);
+				$("#artist_bio").hide();
+
+				$("#artist_pic_url").html("<img src='" + art[artwork_index]["artist_pic_url"] + "'>");
+				$("#artist_pic_url").hide();
+			};
+
+			function refresh_focus() {
+				$.ajax({
+					type: "GET",
+					dataType: "json",
+					data: { user_id : user_id },
+					url: "http://104.131.69.12:8888/pull/mind/" + user_id.toString(),
+					success: function(data) {
+						focus_change = data.focus_level - focus_level;
+						focus_level = data.focus_level;
+						update_dom();
+					},
+					complete: function() {
+						setTimeout(refresh_focus, 5000);
+					},
+				});
+			};
+
+			function fade_out() {
+				$('#fade').fadeOut('slow')
+			};
+
+			function update_dom() {
+				if (focus_change >= 1) {
+					switch (focus_level) {
+						case 2: 
+							$('#artist').fadeIn('slow');
+							$('#art_title').fadeIn('slow');
+						case 3:
+							$('#artist_bio').fadeIn('slow');
+							$('#artist_pic_url').fadeIn('slow');
+					}
+				} if (focus_change < 0){
+					++artwork_index;
+					fade_out();
+					initialize_dom();
+				}
+			};	
 });
