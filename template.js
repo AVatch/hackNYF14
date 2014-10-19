@@ -88,7 +88,6 @@ $(document).ready(function() {
 						setTimeout(refresh_focus, 3000);
 					},
 				});
-				update_dom();
 			};
 
 			function fade_out() {
@@ -100,7 +99,6 @@ $(document).ready(function() {
 			};
 
 			function update_dom() {
-
 				console.log("in the update dom method");
 				console.log("The focus_level is: " + focus_level.toString());
 				if (focus_change >= 1) {
@@ -121,6 +119,7 @@ $(document).ready(function() {
 					}
 				} if (focus_change < 0){
 					++artwork_index;
+					previous_reading = current_reading;
 					focus_level = 1;
 					fade_out();
 					initialize_dom();
