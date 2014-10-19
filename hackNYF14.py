@@ -37,8 +37,34 @@ class MainHandler(tornado.web.RequestHandler):
         self.write(json.dumps(response))
 
 
+class BrainHandler(tornado.web.RequestHandler):
+    def options(self):
+        self.set_status(200)
+
+    def set_default_headers(self):
+        self.set_header('Access-Control-Allow-Origin', '*')
+        self.set_header('Access-Control-Allow-Methods',
+                        'POST, GET, PUT, DELETE, OPTIONS')
+        self.set_header('Access-Control-Allow-Credentials', False)
+        self.set_header('Access-Control-Allow-Headers',
+                        'X-Requested-With, X-HTTP-Method-Override, \
+                        Content-Type, Accept')
+
+    def get(self, user):
+        pass
+
+    def post(self, user):
+        response = json.loads(self.request.body)
+        response["user"] = user
+
+        print response
+
+        # db['brain_collection'].insert(request)
+
+
 application = tornado.web.Application([
     (r"/", MainHandler),
+    (r"/push/brain/([^/]*)", BrainHandler),
 ], db=db, debug=True)
 
 if __name__ == '__main__':
