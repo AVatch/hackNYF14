@@ -75,7 +75,10 @@ class BrainHandler(tornado.web.RequestHandler):
         attention = []
         for i in obj_list:
             for j in i[-10:]:
-                attention.append(int(j[2]))
+                try:
+                    attention.append(int(j[2]))
+                except Exception, e:
+                    print e
 
         attention_mean = np.mean(attention)
         attention_std = np.std(attention)
