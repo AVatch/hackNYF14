@@ -1,4 +1,5 @@
 $(document).ready(function() {
+			grab_art();
 
 			var focus_level = 0;
 			var focus_change = 0;
