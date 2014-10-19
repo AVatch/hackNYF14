@@ -17,21 +17,24 @@ def runner(user, data_file):
         sleep(1.0)  # Time in seconds.
         data = np.array(list(csv.reader(
                         open(data_file), delimiter=',')))
-        data = list(data)
 
-        uniq_data = set(map(tuple, data)) # Get uniques
-        data_to_post = []                 # Restore order
-        for i in uniq_data:
-            if i == [] or len(i) < 11:
-                continue
-            print "Posting:\t", list(i)
-            data_to_post.append(list(i))
+        if len(data) > 10:
 
-        post = {"brain_activity": data_to_post}
-        req = urllib2.Request('http://104.131.69.12:8888/push/brain/' + user)
-        # req = urllib2.Request('http://localhost:8888/push/brain/' + user)
-        req.add_header('Content-Type', 'application/json')
-        response = urllib2.urlopen(req, json.dumps(post))
+            data = list(data)
+
+            uniq_data = set(map(tuple, data)) # Get uniques
+            data_to_post = []                 # Restore order
+            for i in uniq_data:
+                if i == [] or len(i) < 11:
+                    continue
+                print "Posting:\t", list(i)
+                data_to_post.append(list(i))
+
+            post = {"brain_activity": data_to_post}
+            req = urllib2.Request('http://104.131.69.12:8888/push/brain/' + user)
+            # req = urllib2.Request('http://localhost:8888/push/brain/' + user)
+            req.add_header('Content-Type', 'application/json')
+            response = urllib2.urlopen(req, json.dumps(post))
 
 
 if __name__ == '__main__':
