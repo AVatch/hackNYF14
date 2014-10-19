@@ -2,6 +2,7 @@ import tornado.ioloop
 import tornado.web
 import datetime
 import json
+import os
 
 import pymongo
 
@@ -64,7 +65,7 @@ class BrainHandler(tornado.web.RequestHandler):
 application = tornado.web.Application([
     (r"/", MainHandler),
     (r"/push/brain/([^/]*)", BrainHandler),
-    (r"/*.js", tornado.web.StaticFileHandler)
+    (r"/(.*)", tornado.web.StaticFileHandler, dict(path=os.path.dirname(__file__)))
     ], db=db, debug=True)
 
 if __name__ == '__main__':
