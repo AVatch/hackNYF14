@@ -19,6 +19,14 @@ $(document).ready(function() {
 				grab_art();
 			});
 
+			$("#up").on('click', function(e) {
+				focus_level++;
+			});
+
+			$("#down").on('click', function(e) {
+				focus_level--;
+			});
+
 			function grab_art() {
 				$.ajax({
 					type: "GET",
