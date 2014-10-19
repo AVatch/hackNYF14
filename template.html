@@ -17,9 +17,10 @@
 			var artwork_index = 0;
 			var id = 0;
 
-			$(#prompt).submit(function() {
+			$(#prompt).submit(function(e) {
+				e.preventDefault();
 				id = $(#user_id).val();
-				console.log(user_id);
+				console.log(id);
 			});
 
 		});
