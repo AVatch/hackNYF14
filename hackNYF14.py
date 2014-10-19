@@ -47,7 +47,7 @@ class ArtHandler(tornado.web.RequestHandler):
         art_list = []
         for obj in db['md5_fuzzy_hashes'].find():
             art_list.append(obj)
-        self.write(json.dumps(art_list))
+        self.write(json.dumps(art_list), default=json_util.default)
 
 
 class BrainHandler(tornado.web.RequestHandler):
