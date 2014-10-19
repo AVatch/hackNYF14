@@ -21,10 +21,12 @@ $(document).ready(function() {
 
 			$("#up").on('click', function(e) {
 				focus_level++;
+				console.log(focus_level.toString());
 			});
 
 			$("#down").on('click', function(e) {
 				focus_level--;
+				console.log(focus_level.toString());
 			});
 
 			function grab_art() {
@@ -77,6 +79,9 @@ $(document).ready(function() {
 					},
 				});
 				console.log("refresh focus - outside loop");
+				focus_change = data.focus_level - focus_level;
+				focus_level = data.focus_level;
+				update_dom();
 			};
 
 			function fade_out() {
