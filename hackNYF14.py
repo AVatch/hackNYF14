@@ -47,10 +47,7 @@ class ArtHandler(tornado.web.RequestHandler):
         art_list = []
         counter = 0
         for obj in db['md5_fuzzy_hashes'].find():
-            print counter
-            counter += 1
             art_list.append(obj)
-        print len(art_list)
         response = {}
         response["art"] = art_list
         self.write(json.dumps(response, default=json_util.default))
@@ -122,6 +119,7 @@ if __name__ == '__main__':
     art = []
     with open('art.json') as data_file:
         art = json.load(data_file)
+        print len(art)
     for each in art:
         db['md5_fuzzy_hashes'].insert(each)
     application.listen(8888)
