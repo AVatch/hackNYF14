@@ -67,7 +67,9 @@ $(document).ready(function() {
 				$("#artist_pic_url").hide();
 
 				for (var i = 0; i < 6; i++) {
-					$("#" + i.toString() + " h3").html(art[artwork_index]["articles"][i]["name"]);
+					if (art[artwork_index]["articles"][i]) {
+						$("#" + i.toString() + " h3").html(art[artwork_index]["articles"][i]["name"]);
+					}
 					$("#" + i.toString() + " small").html(art[artwork_index]["articles"][i]["description"]);
 				}
 				console.log("towards the end of the initialize loop");
