@@ -85,8 +85,6 @@ class BrainHandler(tornado.web.RequestHandler):
 
         focus_level_arr = []
 
-        # print "Mean:\t", attention_mean
-
         for i, j in enumerate(attention):
 
             if attention_std == 0:
@@ -102,7 +100,8 @@ class BrainHandler(tornado.web.RequestHandler):
         response['focus_last_val'] = attention[-1]
         response['focus_level_std'] = attention_std
         response['focus_level_mean'] = attention_mean
-        response['focus_level'] = int(np.mean(focus_level_arr))
+        # response['focus_level'] = int(np.mean(focus_level_arr))
+        response['focus_level'] = int(focus_level_arr[-1])
 
         self.write(json.dumps(response, default=json_util.default))
 
@@ -115,7 +114,7 @@ class BrainHandler(tornado.web.RequestHandler):
         # print "\n"
         entry_id = db[user + '_brain_collection'].insert(request)
 
-        print "ENTRY_ID:\t", entry_id
+        # print "ENTRY_ID:\t", entry_id
 
 application = tornado.web.Application([
     (r"/", MainHandler),

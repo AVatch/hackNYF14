@@ -20,7 +20,6 @@ def runner(user, data_file):
 
         if len(data) > 10:
 
-
             data = list(data)
 
 
