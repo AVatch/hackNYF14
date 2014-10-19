@@ -24,7 +24,7 @@ class MainHandler(tornado.web.RequestHandler):
     def get(self):
         response = {}
         response["message"] = "Yo"
-        self.render("template.html", title="MIND FUCK", response=json.dumps(response))
+        self.render("template.html", title="MIND FUCK", response=response)
 
     def post(self):
         response = {}
