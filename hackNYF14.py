@@ -101,7 +101,7 @@ class BrainHandler(tornado.web.RequestHandler):
         response['focus_level_std'] = attention_std
         response['focus_level_mean'] = attention_mean
         # response['focus_level'] = int(np.mean(focus_level_arr))
-        response['focus_level'] = int(focus_level_arr[-1])
+        response['focus_level'] = np.mean([focus_level_arr[-1],focus_level_arr[-2],focus_level_arr[-3]])
 
         self.write(json.dumps(response, default=json_util.default))
 

@@ -8,7 +8,7 @@ int time;
 
 void setup(){
   // Create output file
-  output = createWriter("sure03.csv");
+  output = createWriter("sure04.csv");
   
   // List all availible serial ports
   println("Listening on Port:");
