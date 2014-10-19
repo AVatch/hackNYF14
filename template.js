@@ -108,17 +108,15 @@ $(document).ready(function() {
 						console.log("in update dom - case 2");
 						$('#artist').fadeIn('slow');
 						$('#art_title').fadeIn('slow');
-					}
-					if (focus_level == 3) {
+					} else if (focus_level == 3) {
 						console.log("in update dom - case 3");
 						$('#artist_bio').fadeIn('slow');
 						$('#artist_pic_url').fadeIn('slow');
-					}
-					if (focus_level == 4) {
+					} else if (focus_level == 4) {
 						console.log("in update dom - case 4");
 						$('#article').fadeIn('slow');
 					}
-				} if (focus_change < 0 || focus_level == 5){
+				} else if (focus_change < 0 || focus_level == 5){
 					artwork_index = (artwork_index + 1) % 7
 					previous_reading = current_reading;
 					focus_level = -1;
