@@ -1,4 +1,5 @@
 import csv
+import sys
 import urllib2
 import json
 import numpy as np
@@ -6,7 +7,7 @@ import numpy as np
 from time import sleep
 
 
-def runner():
+def runner(user):
     while(True):
         sleep(1.0)  # Time in seconds.
         data = np.array(list(csv.reader(
@@ -21,10 +22,11 @@ def runner():
             data_to_post.append(list(i))
 
         post = {"brain_activity": data_to_post}
-        req = urllib2.Request('http://localhost:8888/push/brain/adrianv')
+        req = urllib2.Request('http://localhost:8888/push/brain/' + user)
         req.add_header('Content-Type', 'application/json')
         response = urllib2.urlopen(req, json.dumps(post))
 
 
 if __name__ == '__main__':
-    runner()
+    user = sys.argv[1]
+    runner(user)

@@ -2,7 +2,12 @@ import tornado.ioloop
 import tornado.web
 import datetime
 import json
+import bson
+from bson import json_util
 import os
+
+import numpy as np
+import math
 
 import pymongo
 
@@ -52,7 +57,33 @@ class BrainHandler(tornado.web.RequestHandler):
                         Content-Type, Accept')
 
     def get(self, user):
-        pass
+        # Return {user: user, focus_level: [1-5]}
+        obj_list = []
+        for obj in db[user+'_brain_collection'].find():
+            obj_list.append(obj["brain_activity"])
+
+        attention = []
+        for i in obj_list:
+            attention.append(int(i[1][1]))
+
+        attention_mean = np.mean(attention)
+        attention_std = np.std(attention)
+
+        focus_level = []
+
+        print "Mean:\t", attention_mean
+
+        for i, j in enumerate(attention):
+            print i, "\t", j, "\t", math.floor(float(j / attention_std))
+            focus_level.append(math.floor(float(j / attention_std)))
+
+        response = {}
+        response['user'] = user
+        response['focus_level_std'] = attention_std
+        response['focus_level_mean'] = attention_mean
+        response['focus_level'] = focus_level
+
+        self.write(json.dumps(response, default=json_util.default))
 
     def post(self, user):
         request = json.loads(self.request.body)
@@ -65,6 +96,7 @@ class BrainHandler(tornado.web.RequestHandler):
 application = tornado.web.Application([
     (r"/", MainHandler),
     (r"/push/brain/([^/]*)", BrainHandler),
+    (r"/pull/brain/([^/]*)", BrainHandler),
     (r"/(.*)", tornado.web.StaticFileHandler, dict(path=os.path.dirname(__file__)))
     ], db=db, debug=True)
 
