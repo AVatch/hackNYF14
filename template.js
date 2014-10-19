@@ -8,6 +8,7 @@ $(document).ready(function() {
 			var artwork_index = 0;
 			var user_id = 0;
 
+
 			$("#artist").hide();
 			$("#art_title").hide();
 			$("#artist_bio").hide();
@@ -117,10 +118,10 @@ $(document).ready(function() {
 						console.log("in update dom - case 4");
 						$('#article').fadeIn('slow');
 					}
-				} if (focus_change < 0){
+				} if (focus_change < 0 || focus_level == 5){
 					artwork_index = (artwork_index + 1) % 7
 					previous_reading = current_reading;
-					focus_level = 0;
+					focus_level = -1;
 					fade_out();
 					initialize_dom();
 				}
