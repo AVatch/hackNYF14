@@ -21,11 +21,13 @@ $(document).ready(function() {
 
 			$("#up").on('click', function(e) {
 				focus_level++;
+				focus_change = 1;
 				console.log(focus_level.toString());
 			});
 
 			$("#down").on('click', function(e) {
 				focus_level--;
+				focus_change = -1;
 				console.log(focus_level.toString());
 			});
 
