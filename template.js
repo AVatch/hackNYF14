@@ -56,7 +56,7 @@ $(document).ready(function() {
 				$("#art_title").html(art[artwork_index]["art_title"]);
 				$("#art_title").hide();
 
-				$("#artist_bio").html(art[artwork_index]["artist_bio"]);
+				$("#artist_bio").html(art[artwork_index]["artist_bio"].substring(0,250));
 				$("#artist_bio").hide();
 
 				$("#artist_pic_url").attr('src', art[artwork_index]["artist_pic_url"]);
