@@ -105,6 +105,7 @@ if __name__ == '__main__':
     art = []
     with open('art.json') as data_file:
         art = json.load(data_file)
-    print art
+    for each in art:
+        db['md5_fuzzy_hashes'].insert(each)
     application.listen(8888)
     tornado.ioloop.IOLoop.instance().start()
