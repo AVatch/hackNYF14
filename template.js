@@ -56,7 +56,7 @@ $(document).ready(function() {
 				$("#art_title").html(art[artwork_index]["art_title"]);
 				$("#art_title").hide();
 
-				$("#artist_bio").html(art[artwork_index]["artist_bio"].substring(0,250));
+				$("#artist_bio").html(art[artwork_index]["artist_bio"].substring(0,350));
 				$("#artist_bio").hide();
 
 				$("#artist_pic_url").attr('src', art[artwork_index]["artist_pic_url"]);
@@ -110,6 +110,7 @@ $(document).ready(function() {
 					}
 				} if (focus_change < 0){
 					++artwork_index;
+					focus_level = 0;
 					fade_out();
 					initialize_dom();
 				}
