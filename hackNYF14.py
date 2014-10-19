@@ -44,8 +44,13 @@ class MainHandler(tornado.web.RequestHandler):
 
 class ArtHandler(tornado.web.RequestHandler):
     def get(self):
-        art_objects = db.md5_fuzzy_hashes.find();
-        self.write(json.dumps(art_objects))
+        art_list = []
+        counter = 0
+        art_list = db['md5_fuzzy_hashes'].find()
+        print len(art_list)
+        response = {}
+        response["art"] = art_list
+        self.write(json.dumps(response, default=json_util.default))
 
 
 class BrainHandler(tornado.web.RequestHandler):
@@ -103,7 +108,7 @@ class BrainHandler(tornado.web.RequestHandler):
 
 application = tornado.web.Application([
     (r"/", MainHandler),
-    (r"/grabart", MainHandler),
+    (r"/grabart", ArtHandler),
     (r"/push/brain/([^/]*)", BrainHandler),
     (r"/pull/brain/([^/]*)", BrainHandler),
     (r"/(.*)", tornado.web.StaticFileHandler, dict(path=os.path.dirname(__file__)))
