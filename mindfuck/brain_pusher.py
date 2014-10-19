@@ -13,8 +13,8 @@ def runner():
                         open("brain_activity.csv"), delimiter=',')))
         data = list(data)
 
-        uniq_data = set(map(tuple, data))
-        data_to_post = []
+        uniq_data = set(map(tuple, data)) # Get uniques
+        data_to_post = []                 # Restore order
         for i in uniq_data:
             if i == [] or len(i) < 11:
                 continue
@@ -24,6 +24,7 @@ def runner():
         req = urllib2.Request('http://localhost:8888/push/brain/adrianv')
         req.add_header('Content-Type', 'application/json')
         response = urllib2.urlopen(req, json.dumps(post))
+
 
 if __name__ == '__main__':
     runner()
