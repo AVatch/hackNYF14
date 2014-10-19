@@ -94,18 +94,19 @@ $(document).ready(function() {
 			function update_dom() {
 				console.log("in the update dom method");
 				if (focus_change >= 1) {
-					switch (focus_level) {
-						case 2: 
-							console.log("in update dom - case 2");
-							$('#artist').fadeIn('slow');
-							$('#art_title').fadeIn('slow');
-						case 3:
-							console.log("in update dom - case 3");
-							$('#artist_bio').fadeIn('slow');
-							$('#artist_pic_url').fadeIn('slow');
-						case 4:
-							console.log("in update dom - case 4");
-							$('#article').fadeIn('slow');
+					if (focus_level == 2) {
+						console.log("in update dom - case 2");
+						$('#artist').fadeIn('slow');
+						$('#art_title').fadeIn('slow');
+					}
+					if (focus_level == 3) {
+						console.log("in update dom - case 3");
+						$('#artist_bio').fadeIn('slow');
+						$('#artist_pic_url').fadeIn('slow');
+					}
+					if (focus_level == 4) {
+						console.log("in update dom - case 4");
+						$('#article').fadeIn('slow');
 					}
 				} if (focus_change < 0){
 					++artwork_index;
