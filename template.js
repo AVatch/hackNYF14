@@ -1,11 +1,16 @@
 $(document).ready(function() {
-			grab_art();
 
 			var focus_level = 0;
 			var focus_change = 0;
 			var art = [];
 			var artwork_index = 0;
 			var user_id = 0;
+
+			$("#artist").hide();
+			$("#art_title").hide();
+			$("#artist_bio").hide();
+			$("#artist_pic_url").hide();
+			$("#article").hide();
 
 			$("#prompt").submit(function(e) {
 				e.preventDefault();
@@ -63,7 +68,11 @@ $(document).ready(function() {
 			};
 
 			function fade_out() {
-				$('#fade').fadeOut('slow')
+				$("#artist").fadeOut('slow');
+				$("#art_title").hide('slow');
+				$("#artist_bio").hide('slow');
+				$("#artist_pic_url").hide('slow');
+				$("#article").hide('slow');
 			};
 
 			function update_dom() {
@@ -75,6 +84,8 @@ $(document).ready(function() {
 						case 3:
 							$('#artist_bio').fadeIn('slow');
 							$('#artist_pic_url').fadeIn('slow');
+						case 4:
+							$('#article').fadeIn('slow');
 					}
 				} if (focus_change < 0){
 					++artwork_index;
