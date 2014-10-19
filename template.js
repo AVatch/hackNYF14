@@ -35,7 +35,7 @@ $(document).ready(function() {
 			};
 
 			function initialize_dom() {
-				console.log("Got here 1");
+				console.log("Init Dom");
 				$("#art_pic_url").html("<img src='" + art[artwork_index]["art_pic_url"] + "'>");
 				$("#art_pic_url").fadeIn("slow");
 				$("#artist").html(art[artwork_index]["artist"]);
@@ -58,6 +58,7 @@ $(document).ready(function() {
 					data: { user_id : user_id },
 					url: "http://104.131.69.12:8888/pull/mind/" + user_id.toString(),
 					success: function(data) {
+						console.log("refresh focus");
 						focus_change = data.focus_level - focus_level;
 						focus_level = data.focus_level;
 						update_dom();
