@@ -77,12 +77,12 @@ $(document).ready(function() {
 					url: "http://104.131.69.12:8888/pull/brain/" + user_id.toString(),
 					success: function(data) {
 						console.log("refresh focus - success loop");
-						focus_change = data.focus_last_val - focus_level;
-						focus_level = data.focus_last_val;
+						focus_change = data.focus_level - focus_level;
+						focus_level = data.focus_level;
 						update_dom();
 					},
 					complete: function() {
-						setTimeout(refresh_focus, 5000);
+						setTimeout(refresh_focus, 3000);
 					},
 				});
 				update_dom();
