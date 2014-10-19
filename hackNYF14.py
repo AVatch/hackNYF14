@@ -47,7 +47,9 @@ class ArtHandler(tornado.web.RequestHandler):
         art_list = []
         for obj in db['md5_fuzzy_hashes'].find():
             art_list.append(obj)
-        self.write(json.dumps(art_list), default=json_util.default)
+        response = {}
+        response["art"] = art_list
+        self.write(json.dumps(response, default=json_util.default))
 
 
 class BrainHandler(tornado.web.RequestHandler):
@@ -115,8 +117,8 @@ if __name__ == '__main__':
     print datetime.datetime.now(), "\tTornado Running:"
     art = []
     with open('art.json') as data_file:
-        print art
         art = json.load(data_file)
+        print art
     for each in art:
         db['md5_fuzzy_hashes'].insert(each)
     application.listen(8888)

@@ -20,7 +20,7 @@ $(document).ready(function() {
 					dataType: "json",
 					url: "http://104.131.69.12:8888/grabart",
 					success: function(data) {
-						art = data;
+						art = data["art"];
 						console.log(art);
 						artwork_index = 0;
 						focus_level = 1;
