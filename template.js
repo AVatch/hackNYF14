@@ -108,7 +108,7 @@ $(document).ready(function() {
 			function update_dom() {	
 				console.log("in the update dom method");
 				console.log("The focus_level is: " + focus_level.toString());
-				if (focus_change >= 0) {
+				if (focus_level >= 0) {
 					focus_level++;
 					if (focus_level == 2) {
 						console.log("in update dom - case 2");
